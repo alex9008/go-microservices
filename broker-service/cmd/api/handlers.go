@@ -47,6 +47,7 @@ func (app *Config) HandleSubmission(w http.ResponseWriter, r *http.Request) {
 
 // authenticate calls the authentication microservice and sends back the appropriate response
 func (app *Config) authenticate(w http.ResponseWriter, a AuthPayload) {
+
 	// create some json we'll send to the auth microservice
 	jsonData, _ := json.MarshalIndent(a, "", "\t")
 
