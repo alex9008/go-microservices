@@ -39,7 +39,7 @@ func (l *LogEntry) Insert(entry LogEntry) error {
 
 	_, err := collection.InsertOne(context.TODO(), LogEntry{
 		Name:     entry.Name,
-		Data:     entry.Name,
+		Data:     entry.Data,
 		CreateAt: time.Now(),
 		UpdateAt: time.Now(),
 	})
