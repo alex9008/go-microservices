@@ -92,6 +92,7 @@ services:
 
 
   mailhog:
+    platform: linux/x86_64
     image: 'mailhog/mailhog:latest'
     ports:
       - "1025:1025"
