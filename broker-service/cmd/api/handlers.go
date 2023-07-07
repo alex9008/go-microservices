@@ -57,7 +57,7 @@ func (app *Config) HandleSubmission(w http.ResponseWriter, r *http.Request) {
 	case "auth":
 		app.authenticate(w, requestPayload.Auth)
 	case "log":
-		app.logItemViaRPC(w, requestPayload.Log)
+		app.logItem(w, requestPayload.Log)
 	case "mail":
 		app.sendMail(w, requestPayload.Mail)
 	default:
@@ -234,7 +234,7 @@ func (app *Config) logItemViaRPC(w http.ResponseWriter, l LogPayload) {
 		return
 	}
 
-	rpcPayload := RPCPayload {
+	rpcPayload := RPCPayload{
 		Name: l.Name,
 		Data: l.Data,
 	}
@@ -246,8 +246,8 @@ func (app *Config) logItemViaRPC(w http.ResponseWriter, l LogPayload) {
 		return
 	}
 
-	payload := jsonResponse {
-		Error: false,
+	payload := jsonResponse{
+		Error:   false,
 		Message: result,
 	}
 
